@@ -12,20 +12,26 @@ var getElementsByClassName = function(className, node
 
   var outputArr = [];
 
-  console.log(node);
+  //console.log(node);
 
-  if (node.className === className) {
+  var classList = node.classList;
+  //console.log(classList);
+
+  if (classList.contains(className)) {
     outputArr.push(node);
-    console.log(outputArr);
+    //console.log(outputArr);
   }
+
+
   //iterate through all elements, check if they have a class name
   var arrChild = node.children;
-  console.log(arrChild);
+  //console.log(arrChild);
 
   for (var i=0; i < arrChild.length; i++) {
-    console.log(i);
-    console.log(arrChild[i]);
-    getElementsByClassName(className, arrChild[i]);
+    //console.log(i);
+    //console.log(arrChild[i]);
+    outputArr = outputArr.concat(getElementsByClassName(className, arrChild[i]));
+    //console.log(outputArr);
   }
   return outputArr;
 
